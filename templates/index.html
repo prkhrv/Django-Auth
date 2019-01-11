@@ -1,0 +1,53 @@
+{% if user.is_authenticated %}
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/mycss.css" %}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald'>
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+    <h1>hello  {{user.username}}</h1>
+    <a href="{% url 'logout' %}">logout</a>
+
+  </body>
+</html>
+
+{% else %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/mycss.css" %}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald'>
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <title>Welcome</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <center>
+    <div class="button-row">
+    <div><a href="{% url 'login' %}" title="Login"></a></div><br><br>
+    <div><a href="{% url 'signup' %}" title="SignUp"></a></div>
+  </div>
+</div>
+</center>
+
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>
+  </body>
+</html>
+
+{% endif %}
